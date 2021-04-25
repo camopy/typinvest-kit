@@ -5,4 +5,6 @@
 	moment.locale('pt-br');
 </script>
 
-<slot />
+<div class="max-w-screen-xl mx-auto">
+	<slot />
+</div>
