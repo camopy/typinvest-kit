@@ -8,6 +8,6 @@ export class Transactions {
   }
 
   toArray() : Transaction[] {
-    return this._transactions
+    return [].concat(this._transactions)
   }
 }
