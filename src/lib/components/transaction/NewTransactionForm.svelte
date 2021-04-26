@@ -1,6 +1,8 @@
 <script>
 	import { Transaction } from '$lib/models/Transaction';
 
+	import { transactions } from '$lib/store/transaction';
+
 	$: date = '';
 	$: amount = 0;
 	$: price = 0;
@@ -9,7 +11,7 @@
 	function addTransaction() {
 		if (validForm) {
 			const transaction = new Transaction(date, amount, price);
-			console.log(transaction);
+			$transactions.add(transaction);
 		}
 	}
 </script>
@@ -55,7 +57,7 @@
 	<button
 		class:opacity-50={!validForm}
 		class:cursor-not-allowed={!validForm}
-		disabled={validForm}
+		disabled={!validForm}
 		class="p-2 bg-indigo-600 rounded-lg text-white font-bold"
 		on:click={addTransaction}>Add</button
 	>
