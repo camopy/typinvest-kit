@@ -1,7 +1,7 @@
 <script>
 	import { Transaction } from '$lib/models/Transaction';
 
-	import { transactions } from '$lib/store/transactions';
+	import { transactionsStore } from '$lib/store/transactions';
 	import { notification } from '$lib/store/notification';
 
 	$: date = '';
@@ -12,7 +12,7 @@
 	function addTransaction() {
 		if (validForm) {
 			const transaction = new Transaction(date, amount, price);
-			$transactions.add(transaction);
+			transactionsStore.add(transaction);
 			notification.showSuccessNotification('Transaction submitted');
 		}
 	}

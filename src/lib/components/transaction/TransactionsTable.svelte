@@ -1,5 +1,6 @@
 <script>
-	import { transactions } from '$lib/store/transactions';
+	import { transactionsStore } from '$lib/store/transactions';
+	const { transactions } = transactionsStore;
 </script>
 
 <table class="w-full">
@@ -13,7 +14,7 @@
 	</thead>
 	{#if $transactions}
 		<tbody>
-			{#each $transactions.toArray() as transaction}
+			{#each $transactions as transaction}
 				<tr>
 					<th>{transaction.date}</th>
 					<th>{transaction.amount}</th>

@@ -1,17 +1,22 @@
-import { writable } from 'svelte/store';
+import { Writable, writable } from 'svelte/store';
 import type { Transaction } from "$lib/models/Transaction";
 
 class Transactions {
-  private _transactions: Transaction[] = []
+  constructor(
+    private _transactions : Writable<Transaction[]>
+  ) {}
 
   add(transaction: Transaction) : void {
-    this._transactions.push(transaction)
-    transactions.set(this)
+    this._transactions.update(transactionsData => [...transactionsData, transaction])
   }
 
   toArray() : Transaction[] {
     return [].concat(this._transactions)
   }
+
+  get transactions() : Writable<Transaction[]>{
+    return this._transactions
+  }
 }
 
-export const transactions = writable<Transactions | null>(new Transactions());
+export const transactionsStore = new Transactions(writable([]));
