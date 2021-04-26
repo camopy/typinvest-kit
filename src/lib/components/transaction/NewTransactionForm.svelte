@@ -2,6 +2,7 @@
 	import { Transaction } from '$lib/models/Transaction';
 
 	import { transactions } from '$lib/store/transactions';
+	import { notification } from '$lib/store/notification';
 
 	$: date = '';
 	$: amount = 0;
@@ -12,6 +13,7 @@
 		if (validForm) {
 			const transaction = new Transaction(date, amount, price);
 			$transactions.add(transaction);
+			notification.showSuccessNotification('Transaction submitted');
 		}
 	}
 </script>
