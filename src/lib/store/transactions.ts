@@ -1,7 +1,7 @@
-import type { Transaction } from "./Transaction";
-	import { transactions } from '$lib/store/transaction';
+import { writable } from 'svelte/store';
+import type { Transaction } from "$lib/models/Transaction";
 
-export class Transactions {
+class Transactions {
   private _transactions: Transaction[] = []
 
   add(transaction: Transaction) : void {
@@ -13,3 +13,5 @@ export class Transactions {
     return [].concat(this._transactions)
   }
 }
+
+export const transactions = writable<Transactions | null>(new Transactions());

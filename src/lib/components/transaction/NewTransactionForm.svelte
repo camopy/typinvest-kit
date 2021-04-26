@@ -1,7 +1,7 @@
 <script>
 	import { Transaction } from '$lib/models/Transaction';
 
-	import { transactions } from '$lib/store/transaction';
+	import { transactions } from '$lib/store/transactions';
 
 	$: date = '';
 	$: amount = 0;

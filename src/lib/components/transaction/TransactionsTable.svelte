@@ -1,5 +1,5 @@
 <script>
-	import { transactions } from '$lib/store/transaction';
+	import { transactions } from '$lib/store/transactions';
 </script>
 
 <table class="w-full">
