@@ -2,23 +2,11 @@ import moment from 'moment'
 
 export class Transaction {
 
-  constructor(private _date : string, private _amount : number, private _price : number) {
-    this._date = moment(_date).format("x")
-  }
-
-  get date() : string {
-    return this._date
+  constructor(readonly date : string, readonly amount : number, readonly price : number) {
+    this.date = moment(date).format("x")
   }
 
   get formattedDate() : string {
-    return moment(this._date, "x").format("L")
-  }
-
-  get amount() : number {
-    return this._amount
-  }
-
-  get price() : number {
-    return this._price
+    return moment(this.date, "x").format("L")
   }
 }
